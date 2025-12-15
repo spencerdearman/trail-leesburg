@@ -63,6 +63,7 @@ const Navbar = () => {
           <div className="menu-content">
             <Link to="/" className="menu-link box-link" onClick={closeMenu}>Home</Link>
             <Link to="/amenities" className="menu-link" onClick={closeMenu}>Amenities</Link>
+            <Link to="/design" className="menu-link" onClick={closeMenu}>Design</Link>
             <Link to="/floorplans" className="menu-link" onClick={closeMenu}>Floorplans</Link>
             <Link to="/gallery" className="menu-link" onClick={closeMenu}>Gallery</Link>
             <Link to="/neighborhood" className="menu-link" onClick={closeMenu}>Neighborhood</Link>
