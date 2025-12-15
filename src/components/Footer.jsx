@@ -12,7 +12,6 @@ const Footer = () => {
             <span className="brand-serif">The Trail</span>
             <span className="brand-sans">LEESBURG</span>
           </Link>
-          <button className="cookie-settings">Cookie Settings</button>
         </div>
 
         <div className="footer-section">
@@ -20,7 +19,7 @@ const Footer = () => {
           <div className="footer-address">
             <p>37 Sycolin Road</p>
             <p>Leesburg, VA 20175</p>
-            <p className="phone">(571) 200-2103</p>
+            <p className="phone">(855) 206-3245</p>
           </div>
         </div>
 
@@ -36,7 +35,7 @@ const Footer = () => {
             <div className="footer-col">
               <Link to="/amenities">Amenities</Link>
               <Link to="/gallery">Gallery</Link>
-              <Link to="/residents">Residents</Link>
+              <Link to="/retail">Retail</Link>
             </div>
           </div>
         </div>

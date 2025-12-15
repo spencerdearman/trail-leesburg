@@ -8,6 +8,7 @@ import Amenities from './pages/Amenities';
 import Gallery from './pages/Gallery';
 import Floorplans from './pages/Floorplans';
 import Contact from './pages/Contact';
+import Retail from './pages/Retail';
 import Footer from './components/Footer';
 import './App.css';
 
@@ -23,6 +24,7 @@ function App() {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/floorplans" element={<Floorplans />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/retail" element={<Retail />} />
       </Routes>
       <Footer />
     </div>

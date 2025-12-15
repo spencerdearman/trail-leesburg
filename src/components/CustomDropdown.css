@@ -1,0 +1,82 @@
+.custom-dropdown {
+  position: relative;
+  font-family: 'Arial', sans-serif;
+  min-width: 120px;
+}
+
+.dropdown-trigger {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  user-select: none;
+}
+
+.dropdown-label {
+  font-weight: bold;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.dropdown-icon {
+  color: #333;
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s;
+}
+
+.custom-dropdown:hover .dropdown-icon {
+  transform: translateY(1px);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  border: 1px solid #eee;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 4px;
+  padding: 0.5rem 0;
+  z-index: 100;
+  min-width: 180px;
+  margin-top: 0.5rem;
+}
+
+.dropdown-item {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  color: #333;
+  transition: background-color 0.1s;
+}
+
+.dropdown-item:hover {
+  background-color: #f5f5f5;
+}
+
+.checkbox-box {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdown-item.selected .checkbox-box {
+  background-color: #333;
+  border-color: #333;
+}
+
+.checkbox-check {
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}

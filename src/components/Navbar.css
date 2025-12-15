@@ -1,5 +1,5 @@
 .navbar {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -7,6 +7,16 @@
   z-index: 1000;
   background: transparent;
   box-sizing: border-box;
+  transition: background-color 0.3s ease;
+}
+
+.navbar.scrolled {
+  background-color: #8F9779; /* Olive Green */
+}
+
+.navbar.navbar-solid {
+  background-color: #8F9779; /* Olive Green */
+  position: fixed;
 }
 
 .navbar-container {
@@ -25,15 +35,19 @@
   z-index: 1001; /* Ensure logo stays above overlay if needed, though design hides it */
 }
 
+.navbar-logo:hover {
+  color: white;
+}
+
 .brand-serif {
   font-family: 'Times New Roman', serif;
-  font-size: 1.8rem;
+  font-size: 3.5rem;
   letter-spacing: 0.05em;
 }
 
 .brand-sans {
   font-family: 'Arial', sans-serif;
-  font-size: 0.6rem;
+  font-size: 0.75rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   margin-top: 0.2rem;
@@ -50,7 +64,7 @@
   text-decoration: none;
   color: white;
   font-family: 'Arial', sans-serif;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   text-transform: capitalize;
   opacity: 0.9;
   transition: opacity 0.2s;
