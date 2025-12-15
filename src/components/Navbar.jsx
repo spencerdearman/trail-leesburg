@@ -53,10 +53,9 @@ const Navbar = () => {
             <button className="find-home-button">Find Your Home</button>
             
             <div className="menu-footer">
-              <p>Virtual Tours</p>
               <div className="address">
-                <p>43601 Charitable Street</p>
-                <p>Ashburn, VA 20148</p>
+                <p>37 Sycolin Road</p>
+                <p>Leesburg, VA 20175</p>
               </div>
             </div>
           </div>
