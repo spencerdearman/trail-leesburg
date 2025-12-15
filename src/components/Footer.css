@@ -1,0 +1,143 @@
+.footer {
+  background-color: #3E4232; /* Dark Olive/Brown */
+  color: #EBE5D9; /* Beige/Off-white text */
+  padding: 4rem 2rem;
+  font-family: 'Arial', sans-serif;
+  margin-top: auto; /* Push to bottom if flex container */
+}
+
+.footer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+  gap: 2rem;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.footer-logo {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: #EBE5D9;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.footer-logo .brand-serif {
+  font-size: 2rem;
+}
+
+.footer-logo .brand-sans {
+  font-size: 0.7rem;
+}
+
+.cookie-settings {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #EBE5D9;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.7rem;
+  cursor: pointer;
+}
+
+.pet-policy {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.footer-section h3 {
+  font-family: 'Times New Roman', serif;
+  font-size: 1.2rem;
+  font-weight: normal;
+  margin-bottom: 1.5rem;
+  color: #EBE5D9;
+}
+
+.footer-address p {
+  margin: 0.3rem 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.phone {
+  margin-top: 1rem !important;
+}
+
+.footer-links-grid {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-col a {
+  color: #EBE5D9;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: opacity 0.2s;
+}
+
+.footer-col a:hover {
+  opacity: 0.7;
+}
+
+.legal-links {
+  margin-top: 1rem;
+  font-size: 0.7rem;
+  line-height: 1.6;
+  opacity: 0.8;
+}
+
+.legal-links a {
+  color: #EBE5D9;
+  text-decoration: none;
+}
+
+.footer-logos {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  justify-content: flex-end;
+}
+
+@media (max-width: 1024px) {
+  .footer-content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .footer-brand, .footer-logos {
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .footer-links-grid {
+    justify-content: center;
+  }
+}
