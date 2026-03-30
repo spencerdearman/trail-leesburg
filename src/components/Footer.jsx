@@ -1,56 +1,70 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Facebook, Instagram, Mail } from 'lucide-react';
-import './Footer.css';
 
 const Footer = () => {
   return (
-    <footer className="footer">
-      <div className="footer-content">
-        <div className="footer-brand">
-          <Link to="/" className="footer-logo">
-            <span className="brand-serif">The Trail</span>
-            <span className="brand-sans">LEESBURG</span>
+    <footer className="bg-charcoal text-linen/80 py-20 px-6 border-t border-linen/10">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
+        
+        {/* Brand Area */}
+        <div className="col-span-1 md:col-span-1">
+          <Link to="/" className="flex flex-col text-linen hover:opacity-80 transition-opacity">
+            <span className="font-serif text-3xl font-medium tracking-tight">The Trail</span>
+            <span className="font-sans text-[0.65rem] tracking-[0.3em] font-semibold mt-0.5 ml-0.5">LEESBURG</span>
           </Link>
-        </div>
-
-        <div className="footer-section">
-          <h3>Our Address</h3>
-          <div className="footer-address">
-            <p>37 Sycolin Road</p>
-            <p>Leesburg, VA 20175</p>
-            <p className="phone">(855) 206-3245</p>
+          <div className="mt-8 text-sm font-sans tracking-wide space-y-1">
+             <p>37 Sycolin Road</p>
+             <p>Leesburg, VA 20175</p>
+          </div>
+          <div className="mt-4 text-sm font-sans tracking-wide">
+             <p>(855) 206-3245</p>
           </div>
         </div>
 
-        <div className="footer-section">
-          <h3>Site Map</h3>
-          <div className="footer-links-grid">
-            <div className="footer-col">
-              <Link to="/">Home</Link>
-              <Link to="/floorplans">Floorplans</Link>
-              <Link to="/neighborhood">Neighborhood</Link>
-              <Link to="/contact">Contact</Link>
-            </div>
-            <div className="footer-col">
-              <Link to="/amenities">Amenities</Link>
-              <Link to="/gallery">Gallery</Link>
-              <Link to="/retail">Retail</Link>
+        {/* Links Grid Area */}
+        <div className="col-span-1 md:col-span-2 grid grid-cols-2 gap-8">
+          <div>
+            <h4 className="text-linen uppercase text-xs font-semibold tracking-[0.2em] mb-6">Explore</h4>
+            <div className="flex flex-col space-y-4 text-sm font-sans">
+              <Link to="/" className="hover:text-linen transition-colors w-max">Home</Link>
+              <Link to="/design" className="hover:text-linen transition-colors w-max">Design</Link>
+              <Link to="/floorplans" className="hover:text-linen transition-colors w-max">Floorplans</Link>
             </div>
           </div>
-        </div>
-
-        <div className="footer-section">
-          <h3>Legal</h3>
-          <p>© 2025 The Trail Leesburg.</p>
-          <p>All Rights Reserved.</p>
-          <div className="legal-links">
-            <Link to="#">Privacy Policy</Link> / <Link to="#">Accessibility Statement</Link> /
-            <Link to="#">DMCA</Link> / <Link to="#">Disclosures & Licenses</Link> /
-            <Link to="#">Renters' Rights & Resources</Link> /
-            <Link to="#">Customize Cookie Settings</Link> / <Link to="#">Site Map</Link>
+          <div>
+            <h4 className="text-linen uppercase text-xs font-semibold tracking-[0.2em] mb-6 shadow-transparent">Discover</h4>
+            <div className="flex flex-col space-y-4 text-sm font-sans">
+              <Link to="/neighborhood" className="hover:text-linen transition-colors w-max">Neighborhood</Link>
+              <Link to="/contact" className="hover:text-linen transition-colors w-max">Contact</Link>
+            </div>
           </div>
         </div>
+
+        {/* Newsletter / CTA Area */}
+        <div className="col-span-1 md:col-span-1 flex flex-col items-start md:items-end md:text-right">
+           <h4 className="text-linen uppercase text-xs font-semibold tracking-[0.2em] mb-6">Stay Informed</h4>
+           <div className="w-full max-w-xs md:max-w-full">
+             <form className="flex border-b border-linen/30 pb-2 mb-6" onSubmit={(e) => e.preventDefault()}>
+                <input 
+                  type="email" 
+                  placeholder="Email Address" 
+                  className="bg-transparent border-none outline-none text-sm w-full placeholder-linen/50 text-linen focus:ring-0"
+                />
+                <button type="submit" className="text-xs uppercase tracking-widest hover:text-white transition-colors">
+                  Join
+                </button>
+             </form>
+           </div>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-linen/10 flex flex-col md:flex-row justify-between items-center text-xs font-sans text-linen/60 space-y-4 md:space-y-0">
+         <p>© {new Date().getFullYear()} The Trail Leesburg. All Rights Reserved.</p>
+         <div className="flex flex-wrap justify-center gap-x-4 gap-y-2">
+           <Link to="#" className="hover:text-linen transition-colors">Privacy Policy</Link>
+           <Link to="#" className="hover:text-linen transition-colors">Accessibility</Link>
+           <Link to="#" className="hover:text-linen transition-colors">DMCA</Link>
+         </div>
       </div>
     </footer>
   );

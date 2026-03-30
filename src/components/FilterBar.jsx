@@ -1,6 +1,5 @@
 import React from 'react';
 import CustomDropdown from './CustomDropdown';
-import './FilterBar.css';
 
 const FilterBar = ({ filters, onFilterChange }) => {
   const bedroomOptions = [
@@ -22,7 +21,7 @@ const FilterBar = ({ filters, onFilterChange }) => {
   ];
 
   return (
-    <div className="filter-bar">
+    <div className="flex flex-col md:flex-row gap-8 md:gap-12 w-full max-w-4xl bg-linen p-8 rounded-2xl border border-charcoal/5 shadow-sm">
       <CustomDropdown 
         label="Bedrooms" 
         options={bedroomOptions} 
@@ -31,14 +30,14 @@ const FilterBar = ({ filters, onFilterChange }) => {
       />
 
       <CustomDropdown 
-        label="Price" 
+        label="Price Range" 
         options={priceOptions} 
         value={filters.price} 
         onChange={(val) => onFilterChange('price', val)} 
       />
 
       <CustomDropdown 
-        label="Square Feet" 
+        label="Square Footage" 
         options={sqftOptions} 
         value={filters.sqft} 
         onChange={(val) => onFilterChange('sqft', val)} 

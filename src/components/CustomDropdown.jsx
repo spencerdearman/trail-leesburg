@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import './CustomDropdown.css';
 
 const CustomDropdown = ({ label, options, value, onChange, placeholder = 'All' }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,11 +10,8 @@ const CustomDropdown = ({ label, options, value, onChange, placeholder = 'All' }
         setIsOpen(false);
       }
     };
-
     document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   const handleSelect = (optionValue) => {
@@ -23,33 +19,38 @@ const CustomDropdown = ({ label, options, value, onChange, placeholder = 'All' }
     setIsOpen(false);
   };
 
-  const getDisplayValue = () => {
-    if (value === 'all') return placeholder;
-    const selectedOption = options.find(opt => opt.value === value);
-    return selectedOption ? selectedOption.label : placeholder;
-  };
+  const selectedDisplay = value === 'all' 
+    ? placeholder 
+    : options.find(opt => opt.value === value)?.label || placeholder;
 
+  // Render a minimal aesthetic line-based dropdown
   return (
-    <div className="custom-dropdown" ref={dropdownRef}>
-      <div className="dropdown-trigger" onClick={() => setIsOpen(!isOpen)}>
-        <span className="dropdown-label">{label}</span>
-        <span className="dropdown-icon">
-          <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    <div className="relative w-full md:w-auto min-w-[200px]" ref={dropdownRef}>
+      <div 
+        className="flex items-center justify-between border-b border-charcoal/20 pb-2 cursor-pointer group hover:border-charcoal/50 transition-colors"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <div className="flex flex-col">
+          <span className="font-sans uppercase tracking-[0.2em] text-[0.65rem] text-charcoal/50 font-semibold mb-1">{label}</span>
+          <span className="font-serif text-lg text-charcoal">{selectedDisplay}</span>
+        </div>
+        <span className={`text-charcoal transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}>
+          <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1L6 6L11 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </span>
       </div>
       
       {isOpen && (
-        <div className="dropdown-menu">
+        <div className="absolute top-full left-0 right-0 mt-2 bg-white/95 backdrop-blur-md border border-charcoal/10 shadow-xl rounded-lg overflow-hidden z-20 py-2">
           {options.map((option) => (
             <div 
               key={option.value} 
-              className={`dropdown-item ${value === option.value ? 'selected' : ''}`}
+              className={`px-4 py-3 cursor-pointer text-sm font-sans flex items-center transition-colors hover:bg-linen ${value === option.value ? 'text-charcoal font-semibold bg-linen/50' : 'text-charcoal/80'}`}
               onClick={() => handleSelect(option.value)}
             >
-              <div className="checkbox-box">
-                {value === option.value && <div className="checkbox-check" />}
+              <div className="w-4 h-4 rounded border border-charcoal/30 flex items-center justify-center mr-3">
+                {value === option.value && <div className="w-2 h-2 rounded-sm bg-bronze" />}
               </div>
               {option.label}
             </div>
