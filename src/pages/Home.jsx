@@ -40,12 +40,16 @@ const Home = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
         >
-          <div className="overflow-hidden mb-4">
+          <div className="flex items-center space-x-4 mb-6 md:mb-8 overflow-hidden">
+             <motion.div 
+               className="h-[1px] w-8 md:w-16 bg-bronze"
+               initial={{ width: 0 }} animate={{ width: "3rem" }} transition={{ delay: 0.6, duration: 0.8 }}
+             ></motion.div>
              <motion.span 
                className="block font-sans uppercase tracking-[0.25em] text-bronze text-xs font-semibold"
-               initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }}
+               initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.8 }}
              >
-               Introducing
+               The New Standard
              </motion.span>
           </div>
           <motion.h1 
@@ -58,7 +62,7 @@ const Home = () => {
             className="font-sans text-charcoal/70 text-sm md:text-base leading-relaxed mb-8"
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }}
           >
-            A curated offering of refined studio, 1, 2, and 3 bedroom residences redefining upscale living in Leesburg.
+            A curated offering of refined 1, 2, and 3 bedroom residences redefining upscale living in Leesburg.
           </motion.p>
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }}>
             <Link to="/floorplans" className="inline-flex items-center space-x-2 border-b border-charcoal text-charcoal pb-1 hover:text-bronze hover:border-bronze transition-colors uppercase tracking-widest text-xs font-semibold shadow-transparent">
@@ -120,41 +124,59 @@ const Home = () => {
           >
             
             {/* Wellness Center (Large) */}
-            <motion.div variants={fadeUpVariant} className="col-span-1 lg:col-span-2 row-span-2 relative rounded-2xl overflow-hidden bg-charcoal group">
-              <div className="absolute inset-0 bg-charcoal/90 group-hover:bg-charcoal/80 transition-colors z-0"></div>
-              {/* Abstract subtle pattern or texture could go here */}
-              <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-12 z-10">
-                <Leaf className="text-linen/50 mb-6" size={40} strokeWidth={1.5} />
-                <h3 className="font-serif text-3xl text-linen mb-3">Holistic Wellness Center</h3>
-                <p className="font-sans text-linen/70 text-sm max-w-md">State-of-the-art conditioning equipment, free weights, and dedicated yoga & meditation spaces designed for your ultimate wellbeing.</p>
+            <motion.div variants={fadeUpVariant} className="col-span-1 lg:col-span-2 row-span-2 relative rounded-2xl overflow-hidden group">
+              <img src="/assets/amenities/gym-2.png" alt="Wellness Center" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-in-out" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-0"></div>
+              <div className="absolute flex flex-col justify-end p-8 md:p-12 z-10 inset-x-0 bottom-0">
+                <h3 className="font-serif text-3xl text-white mb-3 mt-auto">Holistic Wellness Center</h3>
+                <p className="font-sans text-white/90 text-sm max-w-md">State-of-the-art conditioning equipment, free weights, and dedicated yoga & meditation spaces designed for your ultimate wellbeing.</p>
               </div>
             </motion.div>
 
             {/* Coworking (Standard) */}
-            <motion.div variants={fadeUpVariant} className="col-span-1 row-span-1 relative rounded-2xl overflow-hidden bg-linen p-8 flex flex-col justify-end border border-charcoal/5 hover:border-bronze/30 transition-colors">
-              <MonitorPlay className="text-bronze mb-4" size={32} strokeWidth={1.5} />
-              <h3 className="font-serif text-2xl text-charcoal mb-2">Executive Coworking</h3>
-              <p className="font-sans text-charcoal/70 text-sm">Quiet focus pods and collaborative meeting spaces.</p>
+            <motion.div variants={fadeUpVariant} className="col-span-1 row-span-1 relative rounded-2xl overflow-hidden group">
+              <img src="/assets/amenities/coworking.png" alt="Coworking Space" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-in-out" />
+              <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/40 to-transparent z-0"></div>
+              <div className="absolute flex flex-col justify-end p-8 z-10 inset-x-0 bottom-0">
+                <h3 className="font-serif text-2xl text-white mb-2">Executive Coworking</h3>
+                <p className="font-sans text-white/90 text-sm">Quiet focus pods and collaborative meeting spaces.</p>
+              </div>
             </motion.div>
 
-            {/* Rooftop Terrace (Standard) */}
-            <motion.div variants={fadeUpVariant} className="col-span-1 row-span-1 relative rounded-2xl overflow-hidden bg-olive/10 p-8 flex flex-col justify-end border border-olive/5 hover:border-olive/30 transition-colors">
-              <Coffee className="text-olive mb-4" size={32} strokeWidth={1.5} />
-              <h3 className="font-serif text-2xl text-charcoal mb-2">Rooftop Terrace</h3>
-              <p className="font-sans text-charcoal/70 text-sm">Sweeping neighborhood views with fire pits and lounges.</p>
+            {/* Lounge (Standard) */}
+            <motion.div variants={fadeUpVariant} className="col-span-1 row-span-1 relative rounded-2xl overflow-hidden group">
+              <img src="/assets/amenities/lounge.png" alt="Lounge Area" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-in-out" />
+              <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/40 to-transparent z-0"></div>
+              <div className="absolute flex flex-col justify-end p-8 z-10 inset-x-0 bottom-0">
+                <h3 className="font-serif text-2xl text-white mb-2">Curated Lounges</h3>
+                <p className="font-sans text-white/90 text-sm">Intimate gathering spaces bathed in natural light.</p>
+              </div>
             </motion.div>
 
-            {/* Pet Spa (Standard - placed below wellness on lg screens) */}
-            <motion.div variants={fadeUpVariant} className="col-span-1 md:col-span-2 lg:col-span-3 row-span-1 relative rounded-2xl overflow-hidden bg-charcoal text-linen p-8 flex flex-col md:flex-row items-center md:items-end justify-between border border-charcoal/10">
-               <div className="flex-1">
-                 <Droplet className="text-linen/50 mb-4" size={32} strokeWidth={1.5} />
-                 <h3 className="font-serif text-2xl mb-2">Luxury Pet Spa</h3>
-                 <p className="font-sans text-linen/70 text-sm">Professional wash stations for your furry companions.</p>
-               </div>
-               <div className="mt-6 md:mt-0 flex-none">
-                 <Link to="/amenities" className="uppercase font-sans font-semibold tracking-widest text-xs border border-linen/30 px-6 py-3 rounded-full hover:bg-linen hover:text-charcoal transition-all">
-                   View Pet Policy
-                 </Link>
+            {/* Pet Spa (Standard) */}
+            <motion.div variants={fadeUpVariant} className="col-span-1 row-span-1 relative rounded-2xl overflow-hidden group">
+              <img src="/assets/amenities/dogwash.png" alt="Luxury Pet Spa" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-in-out" />
+              <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/40 to-transparent z-0"></div>
+              <div className="absolute flex flex-col justify-end p-8 z-10 inset-x-0 bottom-0 pointer-events-none">
+                <h3 className="font-serif text-2xl text-white mb-2">Luxury Pet Spa</h3>
+                <p className="font-sans text-white/90 text-sm">Professional wash stations for your furry companions.</p>
+              </div>
+            </motion.div>
+
+            {/* Rooftop Terrace (Large) */}
+            <motion.div variants={fadeUpVariant} className="col-span-1 md:col-span-2 row-span-1 relative rounded-2xl overflow-hidden group">
+               <img src="/assets/amenities/rooftop.png" alt="Rooftop Terrace" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-in-out" />
+               <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/40 to-transparent z-0 pointer-events-none"></div>
+               <div className="absolute inset-0 p-8 md:p-12 flex flex-col md:flex-row md:items-center justify-between z-10">
+                 <div className="flex-1">
+                   <h3 className="font-serif text-3xl text-white mb-2">Rooftop Terrace</h3>
+                   <p className="font-sans text-white/90 text-sm">Communal lounge with firepits and a covered outdoor kitchen.</p>
+                 </div>
+                 <div className="mt-6 md:mt-0 flex-none z-20">
+                   <Link to="/amenities" className="uppercase font-sans font-semibold tracking-widest text-xs border border-white/40 text-white px-8 py-4 rounded-full hover:bg-white hover:text-charcoal transition-all bg-transparent backdrop-blur-sm pointer-events-auto cursor-pointer">
+                     View All Amenities
+                   </Link>
+                 </div>
                </div>
             </motion.div>
 
@@ -179,37 +201,43 @@ const Home = () => {
               <motion.div variants={staggerContainer} className="space-y-8">
                 <motion.div variants={fadeUpVariant} className="flex flex-col border-l-2 border-bronze/30 pl-6">
                   <h4 className="font-serif text-xl text-charcoal mb-2">Mushroom Tone Shaker Cabinets</h4>
-                  <p className="font-sans text-charcoal/60 text-sm">Soft, earthy cabinetry offering abundant storage with a sleek, minimalist profile.</p>
+                  <p className="font-sans text-charcoal/60 text-sm">Soft, grounding tones meet timeless design. These cabinets provide a calm, tailored foundation for your daily routine.</p>
                 </motion.div>
                 <motion.div variants={fadeUpVariant} className="flex flex-col border-l-2 border-bronze/30 pl-6">
                   <h4 className="font-serif text-xl text-charcoal mb-2">Zellige-Inspired Backsplash</h4>
-                  <p className="font-sans text-charcoal/60 text-sm">Tactile, artisanal tile work adding depth and natural beauty to your culinary space.</p>
+                  <p className="font-sans text-charcoal/60 text-sm">An artisanal touch that brings organic warmth. The subtle variations in the tile create a sophisticated, handcrafted atmosphere.</p>
                 </motion.div>
                 <motion.div variants={fadeUpVariant} className="flex flex-col border-l-2 border-bronze/30 pl-6">
                   <h4 className="font-serif text-xl text-charcoal mb-2">Sleek Quartz Countertops</h4>
-                  <p className="font-sans text-charcoal/60 text-sm">Highly durable, bright surfaces providing the perfect canvas for prep and entertaining.</p>
+                  <p className="font-sans text-charcoal/60 text-sm">The ideal canvas for hosting and culinary prep. Crisp, resilient surfaces that balance everyday functionality with modern elegance.</p>
                 </motion.div>
               </motion.div>
 
               <motion.div variants={fadeUpVariant} className="mt-12 group inline-block">
                 <Link to="/design" className="inline-flex items-center space-x-3 bg-charcoal text-linen px-8 py-4 rounded-full font-sans uppercase tracking-widest text-xs font-semibold hover:bg-bronze transition-colors shadow-lg">
-                  <span>Explore Interior Design</span>
+                  <span>Explore Design</span>
                 </Link>
               </motion.div>
             </motion.div>
 
-            {/* Abstract visual representation of finishes */}
-            <motion.div 
-              className="lg:w-1/2 w-full aspect-square md:aspect-[4/3] bg-charcoal relative rounded-tl-[80px] rounded-br-[80px] overflow-hidden shadow-2xl"
-              initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 1 }}
-            >
-              {/* Using CSS to create a tasteful abstract visual representing the tones */}
-              <div className="absolute inset-0 flex flex-col transition-all">
-                <div className="h-1/3 bg-[#ece8e3] w-full flex items-center px-8 border-b border-charcoal/10"><span className="font-serif italic text-charcoal/20 text-4xl">Quartz</span></div>
-                <div className="h-1/3 bg-[#e0d5c8] w-full flex items-center justify-end px-8 border-b border-charcoal/10"><span className="font-serif italic text-charcoal/20 text-4xl">Shaker</span></div>
-                <div className="h-1/3 bg-[#c2b6a8] w-full flex items-center px-8"><span className="font-serif italic text-charcoal/20 text-4xl">Zellige</span></div>
-              </div>
-            </motion.div>
+            {/* Real Residences Photography */}
+            <div className="lg:w-1/2 w-full relative min-h-[500px] md:min-h-[600px] mt-16 lg:mt-0">
+               {/* Kitchen Image - Main/Background */}
+               <motion.div 
+                 className="absolute top-0 right-0 w-[80%] md:w-[75%] h-[70%] rounded-2xl md:rounded-tl-[80px] md:rounded-tr-2xl md:rounded-bl-2xl overflow-hidden shadow-xl"
+                 initial={{ opacity: 0, scale: 0.95, y: 20 }} whileInView={{ opacity: 1, scale: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }}
+               >
+                 <img src="/assets/apartment/kitchen.png" alt="Designer Kitchen" className="w-full h-full object-cover hover:scale-105 transition-transform duration-[2s]" />
+               </motion.div>
+               
+               {/* Bathroom Image - Overlapping Foreground */}
+               <motion.div 
+                 className="absolute bottom-0 left-0 w-[55%] md:w-[50%] h-[55%] rounded-2xl md:rounded-br-[80px] md:rounded-tl-2xl md:rounded-tr-2xl md:rounded-bl-2xl overflow-hidden shadow-2xl z-10"
+                 initial={{ opacity: 0, scale: 0.95, x: -30 }} whileInView={{ opacity: 1, scale: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 1, delay: 0.3 }}
+               >
+                 <img src="/assets/apartment/bathroom.png" alt="Luxury Bathroom" className="w-full h-full object-cover hover:scale-105 transition-transform duration-[2s]" />
+               </motion.div>
+            </div>
          </div>
       </section>
 

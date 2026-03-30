@@ -54,15 +54,17 @@ const Floorplans = () => {
     <div className="w-full relative overflow-x-hidden bg-white min-h-screen">
       
       {/* 1. Header Section */}
-      <section className="pt-32 pb-20 px-6 bg-charcoal text-linen relative overflow-hidden">
+      <section className="relative w-full h-[60vh] md:h-[70vh] flex flex-col justify-end bg-charcoal overflow-hidden pt-24">
         {/* Subtle background abstract shapes */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-charcoal/90 via-[#373A34] to-[#4A4B43] opacity-80 z-0"></div>
         <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-white/5 to-transparent pointer-events-none"></div>
-        <div className="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row justify-between items-end gap-12">
+        
+        <div className="relative z-10 max-w-7xl mx-auto w-full px-6 pb-16">
            <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="max-w-2xl">
-             <motion.span variants={fadeUpVariant} className="block font-sans uppercase tracking-[0.25em] text-bronze text-xs font-semibold mb-6">
+             <motion.span variants={fadeUpVariant} className="block font-sans uppercase tracking-[0.25em] text-linen/70 text-xs font-semibold mb-4">
                Residences
              </motion.span>
-             <motion.h1 variants={fadeUpVariant} className="font-serif text-5xl md:text-7xl leading-tight mb-8">
+             <motion.h1 variants={fadeUpVariant} className="font-serif text-5xl md:text-7xl text-linen leading-tight mb-6">
                Refined living, <br/><span className="italic text-linen/70">tailored to you.</span>
              </motion.h1>
              <motion.p variants={fadeUpVariant} className="font-sans text-linen/70 text-lg md:text-xl leading-relaxed">

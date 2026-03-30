@@ -1,5 +1,71 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { CheckCircle } from 'lucide-react';
+
+const NewsLetterForm = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
+  const WEB3FORMS_ACCESS_KEY = 'YOUR_ACCESS_KEY_HERE';
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    const formData = new FormData(e.target);
+    formData.append('access_key', WEB3FORMS_ACCESS_KEY);
+    formData.append('subject', 'New Newsletter Signup - The Trail');
+    
+    if (WEB3FORMS_ACCESS_KEY === 'YOUR_ACCESS_KEY_HERE') {
+      setTimeout(() => {
+        setIsSubmitting(false);
+        setSubmitStatus('success');
+      }, 1500);
+      return;
+    }
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData });
+      const data = await response.json();
+      if (data.success) {
+        setSubmitStatus('success');
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  if (submitStatus === 'success') {
+     return (
+       <div className="flex items-center space-x-2 text-olive mb-6 border-b border-transparent pb-2">
+         <CheckCircle size={16} />
+         <span className="text-xs font-sans tracking-wide">Successfully Subscribed!</span>
+       </div>
+     );
+  }
+
+  return (
+    <form className="flex border-b border-linen/30 pb-2 mb-6" onSubmit={handleSubmit}>
+       <input 
+         type="email" 
+         name="email"
+         required
+         placeholder="Email Address" 
+         className="bg-transparent border-none outline-none text-sm w-full placeholder-linen/50 text-linen focus:ring-0"
+       />
+       <button 
+         type="submit" 
+         disabled={isSubmitting}
+         className={`text-xs uppercase tracking-widest transition-colors ${isSubmitting ? 'text-linen/50 cursor-wait' : 'hover:text-white'}`}
+       >
+         {isSubmitting ? '...' : 'Join'}
+       </button>
+    </form>
+  );
+};
 
 const Footer = () => {
   return (
@@ -44,16 +110,7 @@ const Footer = () => {
         <div className="col-span-1 md:col-span-1 flex flex-col items-start md:items-end md:text-right">
            <h4 className="text-linen uppercase text-xs font-semibold tracking-[0.2em] mb-6">Stay Informed</h4>
            <div className="w-full max-w-xs md:max-w-full">
-             <form className="flex border-b border-linen/30 pb-2 mb-6" onSubmit={(e) => e.preventDefault()}>
-                <input 
-                  type="email" 
-                  placeholder="Email Address" 
-                  className="bg-transparent border-none outline-none text-sm w-full placeholder-linen/50 text-linen focus:ring-0"
-                />
-                <button type="submit" className="text-xs uppercase tracking-widest hover:text-white transition-colors">
-                  Join
-                </button>
-             </form>
+              <NewsLetterForm />
            </div>
         </div>
       </div>

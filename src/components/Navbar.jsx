@@ -20,39 +20,52 @@ const Navbar = () => {
   }, []);
 
   // Determine navbar styling based on state
+  const isDarkHeroPage = ['/', '/design', '/amenities', '/floorplans', '/contact'].includes(location.pathname);
+  
   const navBg = isMenuOpen
-    ? 'bg-charcoal/95 backdrop-blur-xl'
+    ? 'bg-transparent border-transparent shadow-none'
     : isScrolled
-    ? 'bg-linen/90 backdrop-blur-lg border-b border-charcoal/5 shadow-sm'
-    : !isHome
-    ? 'bg-linen border-b border-charcoal/5'
-    : 'bg-transparent';
+    ? 'bg-white/95 backdrop-blur-xl border-b border-charcoal/10 shadow-sm'
+    : 'bg-transparent border-transparent';
 
-  const textColor = (isScrolled || !isHome) && !isMenuOpen ? 'text-charcoal' : 'text-linen';
+  const textColor = isMenuOpen 
+    ? 'text-linen' 
+    : isScrolled 
+    ? 'text-charcoal' 
+    : isDarkHeroPage 
+    ? 'text-linen' 
+    : 'text-charcoal';
 
   return (
     <>
-      <nav className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ease-in-out ${navBg}`}>
-        <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
-          <Link to="/" className={`flex flex-col z-50 ${textColor}`} onClick={closeMenu}>
-            <span className="font-serif text-3xl font-medium tracking-tight">The Trail</span>
-            <span className="font-sans text-[0.65rem] tracking-[0.3em] font-semibold mt-0.5 ml-0.5">LEESBURG</span>
+      <nav className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ease-in-out ${navBg}`}>
+        <div className="w-full max-w-[1400px] 2xl:max-w-screen-2xl mx-auto flex items-center justify-between px-4 md:px-8 xl:px-12 h-20 md:h-24 transition-all duration-500">
+          <Link 
+            to="/" 
+            className={`flex items-baseline z-50 ${textColor} group ${!isScrolled && !isMenuOpen && isDarkHeroPage ? 'drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]' : ''}`} 
+            onClick={closeMenu}
+          >
+            <span className="font-serif text-[1.75rem] md:text-3xl font-medium tracking-tight transition-opacity group-hover:opacity-80">The Trail.</span>
+            <span className="font-sans text-[0.6rem] md:text-xs tracking-[0.4em] font-semibold ml-3 md:ml-4 opacity-70">LEESBURG</span>
           </Link>
           
           {/* Desktop Navigation */}
-          <div className={`hidden md:flex items-center space-x-8 font-sans text-sm font-medium tracking-wide ${textColor}`}>
+          <div className={`hidden md:flex items-center space-x-10 font-sans text-xs uppercase tracking-widest font-semibold ${textColor} ${!isScrolled && !isMenuOpen && isDarkHeroPage ? 'drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]' : ''}`}>
             <Link to="/design" className="hover:opacity-70 transition-opacity">Design</Link>
-            <Link to="/floorplans" className="hover:opacity-70 transition-opacity">Floorplans</Link>
+            <Link to="/amenities" className="hover:opacity-70 transition-opacity">Amenities</Link>
+            <Link to="/floorplans" className="hover:opacity-70 transition-opacity">Residences</Link>
             <Link to="/neighborhood" className="hover:opacity-70 transition-opacity">Neighborhood</Link>
-            <button className="hover:opacity-70 transition-opacity cursor-pointer z-50" onClick={toggleMenu} aria-label="Toggle menu">
-               {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            <div className="w-px h-6 bg-current opacity-20 mx-2"></div>
+            <button className="hover:opacity-70 transition-opacity cursor-pointer z-50 flex items-center space-x-2" onClick={toggleMenu} aria-label="Toggle menu">
+               {isMenuOpen ? <X size={24} strokeWidth={1.5} /> : <Menu size={24} strokeWidth={1.5} />}
+               <span className="mt-0.5">{isMenuOpen ? 'Close' : 'Menu'}</span>
             </button>
           </div>
 
           {/* Mobile Header Button */}
           <div className="md:hidden flex items-center z-50">
-             <button className={`p-2 ${textColor}`} onClick={toggleMenu} aria-label="Toggle menu">
-               {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+             <button className={`p-2 transition-colors ${textColor}`} onClick={toggleMenu} aria-label="Toggle menu">
+               {isMenuOpen ? <X size={28} strokeWidth={1.5} /> : <Menu size={28} strokeWidth={1.5} />}
              </button>
           </div>
         </div>
@@ -75,9 +88,13 @@ const Navbar = () => {
               <span className="w-0 group-hover:w-8 h-px bg-bronze transition-all duration-300 ease-out hidden md:block"></span>
               <span>Design</span>
             </Link>
+            <Link to="/amenities" className="hover:text-bronze transition-colors flex items-center space-x-4 group" onClick={closeMenu}>
+              <span className="w-0 group-hover:w-8 h-px bg-bronze transition-all duration-300 ease-out hidden md:block"></span>
+              <span>Amenities</span>
+            </Link>
             <Link to="/floorplans" className="hover:text-bronze transition-colors flex items-center space-x-4 group" onClick={closeMenu}>
               <span className="w-0 group-hover:w-8 h-px bg-bronze transition-all duration-300 ease-out hidden md:block"></span>
-              <span>Floorplans</span>
+              <span>Residences</span>
             </Link>
             <Link to="/neighborhood" className="hover:text-bronze transition-colors flex items-center space-x-4 group" onClick={closeMenu}>
               <span className="w-0 group-hover:w-8 h-px bg-bronze transition-all duration-300 ease-out hidden md:block"></span>
@@ -94,7 +111,7 @@ const Navbar = () => {
             <p>37 Sycolin Road</p>
             <p>Leesburg, VA 20175</p>
             <p className="mt-4 hover:text-linen cursor-pointer transition-colors">(855) 206-3245</p>
-            <Link to="/contact" className="mt-12 uppercase tracking-widest text-xs font-semibold hover:text-bronze transition-colors border-b border-linen/20 pb-1 w-max">Get In Touch</Link>
+            <Link to="/contact" className="mt-12 uppercase tracking-widest text-xs font-semibold hover:text-bronze transition-colors border-b border-linen/20 pb-1 w-max" onClick={closeMenu}>Get In Touch</Link>
           </div>
 
         </div>

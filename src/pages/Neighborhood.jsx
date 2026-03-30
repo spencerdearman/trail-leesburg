@@ -22,11 +22,12 @@ const Neighborhood = () => {
       
       {/* 1. HERO HEADER */}
       <section className="py-20 md:py-32 px-6">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <motion.div
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
+            className="max-w-3xl"
           >
             <motion.span 
               variants={fadeUpVariant}
@@ -45,9 +46,25 @@ const Neighborhood = () => {
         </div>
       </section>
 
+      {/* 2. EDITORIAL IMAGE BREAK */}
+      <section className="px-6 pb-20 md:pb-32">
+         <motion.div 
+            className="max-w-7xl mx-auto w-full h-[50vh] md:h-[65vh] relative overflow-hidden rounded-[2rem] shadow-md group"
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+         >
+            <img 
+              src="/assets/leesburg.jpg" 
+              alt="Leesburg Aerial View" 
+              className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-[2s] ease-out" 
+            />
+         </motion.div>
+      </section>
+
       {/* 2. CONTENT SECTION */}
       <section className="pb-32 px-6">
-         <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16">
+         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16">
             
             {/* Main Text Copy */}
             <motion.div 
@@ -84,6 +101,7 @@ const Neighborhood = () => {
                whileInView="visible"
                viewport={{ once: true, margin: "-50px" }}
             >
+
                 <motion.div variants={fadeUpVariant}>
                    <h3 className="font-serif text-2xl text-charcoal mb-4">W&OD Trail Access</h3>
                    <p className="font-sans text-charcoal/70 text-base leading-relaxed">

@@ -32,7 +32,7 @@ const Design = () => {
         
         <div className="relative z-10 max-w-7xl mx-auto w-full px-6 pb-16">
           <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
-            <motion.span variants={fadeUpVariant} className="block font-sans uppercase tracking-[0.25em] text-bronze text-xs font-semibold mb-4">
+            <motion.span variants={fadeUpVariant} className="block font-sans uppercase tracking-[0.25em] text-linen/70 text-xs font-semibold mb-4">
               Aesthetic Vision
             </motion.span>
             <motion.h1 variants={fadeUpVariant} className="font-serif text-5xl md:text-7xl text-linen leading-tight mb-6">
@@ -50,7 +50,7 @@ const Design = () => {
              initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}
            >
              <motion.h2 variants={fadeUpVariant} className="font-serif text-3xl md:text-4xl text-charcoal leading-relaxed">
-               Linen and natural colored furniture throughout perfectly balances against rich paint colors used to create distinct areas of contrast.
+               Natural wood tones and linen-colored furniture perfectly balance against rich paint palettes, establishing distinct areas of striking contrast.
              </motion.h2>
            </motion.div>
 
@@ -61,9 +61,9 @@ const Design = () => {
                 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
               >
                  <div className="absolute top-0 right-0 w-32 h-32 bg-[#e0d5c8] rounded-bl-full opacity-20 group-hover:scale-110 transition-transform"></div>
-                 <h3 className="font-serif text-2xl text-charcoal mb-4 relative z-10">Roman Clay Walls</h3>
+                 <h3 className="font-serif text-2xl text-charcoal mb-4 relative z-10">Artisan Wall Treatments</h3>
                  <p className="font-sans text-charcoal/70 text-sm leading-relaxed relative z-10">
-                   Roman clay walls integrated into the main pathways introduce an organic, tactile depth that softens structural edges.
+                   Main pathways feature tactile Roman clay textures, while residential corridors and common spaces utilize elegant painted wainscoting and picture molding to add classical depth.
                  </p>
               </motion.div>
 
@@ -73,9 +73,9 @@ const Design = () => {
                 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.2 }}
               >
                  <div className="absolute bottom-0 right-0 w-24 h-24 bg-bronze/10 mix-blend-multiply group-hover:-translate-y-2 transition-transform"></div>
-                 <h3 className="font-serif text-2xl text-charcoal mb-4 relative z-10">Limestone & Clay</h3>
+                 <h3 className="font-serif text-2xl text-charcoal mb-4 relative z-10">Oak & Limestone</h3>
                  <p className="font-sans text-charcoal/70 text-sm leading-relaxed relative z-10">
-                   Limestone flooring and rich clay wall textures ground the spaces, seamlessly mingling with limestone-look porcelain tile guiding resident pathways.
+                   Tumbled-edge, limestone-look porcelain tile grounds the pathways, transitioning to neutral European oak in lounges, and finishing with light luxury plank inside the residences.
                  </p>
               </motion.div>
 
@@ -85,33 +85,35 @@ const Design = () => {
                 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.4 }}
               >
                  <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/40 to-transparent"></div>
-                 <h3 className="font-serif text-2xl text-linen mb-4 relative z-10">Natural Wood Tones</h3>
+                 <h3 className="font-serif text-2xl text-linen mb-4 relative z-10">Color Drenching</h3>
                  <p className="font-sans text-linen/70 text-sm leading-relaxed relative z-10">
-                   Warmth is introduced through abundant natural wood tones, softening the architectural geometry.
+                   A sophisticated technique of painting walls, ceilings, and moldings in uniform tones creates an enveloping, immersive aesthetic across our curated common areas.
                  </p>
               </motion.div>
 
               {/* Feature 4 */}
               <motion.div 
-                className="col-span-1 md:col-span-2 lg:col-span-3 bg-olive/10 p-8 md:p-12 rounded-xl flex flex-col md:flex-row items-center border border-olive/10"
+                className="col-span-1 md:col-span-2 lg:col-span-3 bg-olive/10 p-8 md:p-12 rounded-xl flex flex-col md:flex-row items-center border border-olive/10 group"
                 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.2 }}
               >
                  <div className="md:w-1/2 mb-8 md:mb-0 md:pr-12">
-                   <h3 className="font-serif text-3xl text-charcoal mb-4">Architectural Integrity</h3>
+                   <h3 className="font-serif text-3xl text-charcoal mb-4">Refined Finishes & Fixtures</h3>
+                   <p className="font-sans text-charcoal/70 text-base leading-relaxed mb-4">
+                     Our residences boast off-white and mushroom-tone shaker cabinets, perfectly complemented by cool-toned quartz countertops and Zellige-inspired porcelain tile.
+                   </p>
                    <p className="font-sans text-charcoal/70 text-base leading-relaxed">
-                     Modern functionality meets heritage design through structural glass partitions that divide large volumes while maintaining light, alongside framed spaces utilizing bulkheads for a seamless recessed cabinet look.
+                     Common areas are brilliantly illuminated by aged brass fixtures and blackened brass plumbing, while unit kitchens sparkle with modern polished nickel hardware.
                    </p>
                  </div>
                  <div className="md:w-1/2 flex gap-4 w-full h-48 md:h-64">
-                    {/* Abstract visual representations */}
-                    <div className="w-1/3 h-full bg-charcoal rounded-lg opacity-90 relative overflow-hidden">
-                       <div className="absolute inset-0 border-[4px] border-charcoal/80 flex items-center justify-center">
-                          <div className="w-[1px] h-full bg-white/20"></div> {/* Glass partition abstraction */}
-                       </div>
+                    {/* Abstract visual representations of finishes */}
+                    <div className="w-1/3 h-full bg-charcoal rounded-lg opacity-90 relative overflow-hidden flex flex-col justify-end">
+                       <div className="w-full h-1/3 bg-bronze/40 border-t border-bronze/60 group-hover:h-1/2 transition-all duration-500"></div> {/* Aged Brass abstraction */}
                     </div>
-                    <div className="w-2/3 h-full bg-[#e8e2da] rounded-lg shadow-inner flex flex-col pt-8 px-6">
-                       <div className="w-full h-8 bg-[#dad2c7] rounded-sm mb-4"></div> {/* Bulkhead abstraction */}
-                       <div className="w-full flex-grow bg-white/50 rounded-t-sm shadow-sm border border-white/60"></div>
+                    <div className="w-2/3 h-full bg-[#f4f1ee] rounded-lg shadow-inner flex flex-col pt-8 px-6 border border-charcoal/5">
+                       <div className="w-full h-12 bg-[#e6e1da] rounded-sm mb-4"></div> {/* Off-white Shaker Cabinet abstraction */}
+                       <div className="w-full h-4 bg-[#b5a999] rounded-sm mb-4"></div> {/* Mushroom Tone abstraction */}
+                       <div className="w-full flex-grow bg-white rounded-t-sm shadow-[inset_0_2px_10px_rgba(0,0,0,0.05)] border border-white/60"></div> {/* Quartz Counter abstraction */}
                     </div>
                  </div>
               </motion.div>
