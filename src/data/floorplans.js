@@ -1,5 +1,3 @@
-import floorplanImage from '../assets/home-image.png'; // Using existing image as placeholder
-
 export const floorplans = [
   // --- 1 BEDROOMS ---
   {

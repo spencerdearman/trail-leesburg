@@ -55,7 +55,7 @@ const Neighborhood = () => {
             transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
          >
             <img 
-              src="/assets/leesburg.jpg" 
+              src="/assets/neighborhood/leesburg.jpg" 
               alt="Leesburg Aerial View" 
               className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-[2s] ease-out" 
             />

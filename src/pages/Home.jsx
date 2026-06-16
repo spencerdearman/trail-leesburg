@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Leaf, Coffee, MonitorPlay, Droplet } from 'lucide-react';
-import homeImage from '../assets/home-image.png';
+import heroImage from '/assets/hero/hero.png';
 
 const fadeUpVariant = {
   hidden: { opacity: 0, y: 30 },
@@ -27,7 +27,7 @@ const Home = () => {
       <section className="relative w-full h-screen flex items-end md:items-center">
         <div 
           className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${homeImage})` }}
+          style={{ backgroundImage: `url(${heroImage})` }}
         >
           {/* Subtle dark gradient overlay to ensure text legibility */}
           <div className="absolute inset-0 bg-charcoal/20"></div>
