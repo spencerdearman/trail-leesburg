@@ -45,7 +45,7 @@ const Amenities = () => {
 
               {/* ROW 1: Massive Lounge Image & Resident Pantry Text Block */}
               <motion.div variants={fadeUpVariant} className="col-span-1 md:col-span-8 group relative overflow-hidden rounded-2xl shadow-sm h-[50vh] md:h-[60vh]">
-                 <img src="/assets/amenities/lounge.png" alt="Lobby and Lounge" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-in-out" />
+                 <img src="/assets/amenities/lounge-2.png" alt="Lobby and Lounge" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-in-out" />
                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
                  <div className="absolute bottom-0 left-0 p-8 md:p-12 w-full md:w-3/4">
                     <h3 className="font-serif text-3xl md:text-4xl text-white mb-3">Lobby and Lounge</h3>
